@@ -1,0 +1,22 @@
+{
+    "sourceFile": "app/layout.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1687720081062,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1687720231892,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,9 @@\n import UserProvider from \"@/providers/UserProvider\";\n import ModalProvider from \"@/providers/ModalProvider\";\n import ToasterProvider from \"@/providers/ToasterProvider\";\n import getSongsByUserId from \"@/actions/getSongsByUserId\";\n+import Player from \"@/components/Player\";\n \n const font = Figtree({ subsets: [\"latin\"] });\n \n export const metadata = {\n"
+                }
+            ],
+            "date": 1687720081062,
+            "name": "Commit-0",
+            "content": "import Sidebar from \"@/components/Sidebar\";\nimport \"./globals.css\";\nimport { Figtree } from \"next/font/google\";\nimport SupabaseProvider from \"@/providers/SupabaseProvider\";\nimport UserProvider from \"@/providers/UserProvider\";\nimport ModalProvider from \"@/providers/ModalProvider\";\nimport ToasterProvider from \"@/providers/ToasterProvider\";\nimport getSongsByUserId from \"@/actions/getSongsByUserId\";\n\nconst font = Figtree({ subsets: [\"latin\"] });\n\nexport const metadata = {\n  title: \"Spotify Clone\",\n  description: \"Listen to music!\",\n};\n\nexport const revalidate = 0;\n\nexport default async function RootLayout({\n  children,\n}: {\n  children: React.ReactNode;\n}) {\n  const userSongs = await getSongsByUserId()\n  return (\n    <html lang=\"en\">\n      <body className={font.className}>\n        <ToasterProvider />\n        <SupabaseProvider>\n          <UserProvider>\n            <ModalProvider/>\n            <Sidebar songs={userSongs}>\n              {children}\n            </Sidebar>\n            <Player />\n          </UserProvider>\n        </SupabaseProvider>\n      </body>\n    </html>\n  );\n}\n"
+        }
+    ]
+}

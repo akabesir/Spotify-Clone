@@ -1,0 +1,98 @@
+{
+    "sourceFile": "hooks/useOnPlay.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 20,
+            "patches": [
+                {
+                    "date": 1687721223827,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1687721232063,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,3 @@\n-const useOnPlay\n\\ No newline at end of file\n+import { Song } from \"@/types\";\r\n+\r\n+const useOnPlay = (songs: Song[]) \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687721255550,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,9 @@\n import { Song } from \"@/types\";\r\n+import usePlayer from \"./usePlayer\";\r\n+import useAuthModal from \"./useAuthModal\";\r\n\\ No newline at end of file\n \r\n-const useOnPlay = (songs: Song[]) \n+const useOnPlay = (songs: Song[]) => {\r\n+    const player = usePlayer()\r\n+    const authModal = useAuthModal()\r\n+    const []\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687721262850,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,10 @@\n import { Song } from \"@/types\";\r\n import usePlayer from \"./usePlayer\";\r\n import useAuthModal from \"./useAuthModal\";\r\n+import { useUser } from \"@supabase/auth-helpers-react\";\r\n \r\n const useOnPlay = (songs: Song[]) => {\r\n     const player = usePlayer()\r\n     const authModal = useAuthModal()\r\n-    const []\r\n+    const {user} = useUser(9)\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687721292912,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,6 +5,8 @@\n \r\n const useOnPlay = (songs: Song[]) => {\r\n     const player = usePlayer()\r\n     const authModal = useAuthModal()\r\n-    const {user} = useUser(9)\r\n+    const {user} = useUser()\r\n+\r\n+    const onPlay\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687721297957,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,6 +7,6 @@\n     const player = usePlayer()\r\n     const authModal = useAuthModal()\r\n     const {user} = useUser()\r\n \r\n-    const onPlay\r\n+    const onPlay = (id:string)\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687721311981,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,6 +7,10 @@\n     const player = usePlayer()\r\n     const authModal = useAuthModal()\r\n     const {user} = useUser()\r\n \r\n-    const onPlay = (id:string)\r\n+    const onPlay = (id:string) => {\r\n+        if(!user){\r\n+            return authModal.onOpen()\r\n+        }\r\n+    }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687721326502,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n import { useUser } from \"@supabase/auth-helpers-react\";\r\n \r\n const useOnPlay = (songs: Song[]) => {\r\n     const player = usePlayer()\r\n-    const authModal = useAuthModal()\r\n+    const authModal = useAuthModal();\r\n     const {user} = useUser()\r\n \r\n     const onPlay = (id:string) => {\r\n         if(!user){\r\n"
+                },
+                {
+                    "date": 1687721331553,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,11 +3,11 @@\n import useAuthModal from \"./useAuthModal\";\r\n import { useUser } from \"@supabase/auth-helpers-react\";\r\n \r\n const useOnPlay = (songs: Song[]) => {\r\n-    const player = usePlayer()\r\n+    const player = usePlayer();\r\n     const authModal = useAuthModal();\r\n-    const {user} = useUser()\r\n+    const {user} = useUser();\r\n \r\n     const onPlay = (id:string) => {\r\n         if(!user){\r\n             return authModal.onOpen()\r\n"
+                },
+                {
+                    "date": 1687721349618,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n \r\n const useOnPlay = (songs: Song[]) => {\r\n     const player = usePlayer();\r\n     const authModal = useAuthModal();\r\n-    const {user} = useUser();\r\n+    const { subscription, user } = useUser();\r\n \r\n     const onPlay = (id:string) => {\r\n         if(!user){\r\n             return authModal.onOpen()\r\n"
+                },
+                {
+                    "date": 1687721360035,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,6 +11,10 @@\n     const onPlay = (id:string) => {\r\n         if(!user){\r\n             return authModal.onOpen()\r\n         }\r\n+\r\n+        if (!subscription) {\r\n+            return subscribeModal.onOpen();\r\n+          }\r\n     }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687721365261,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,6 @@\n         if(!user){\r\n             return authModal.onOpen()\r\n         }\r\n \r\n-        if (!subscription) {\r\n-            return subscribeModal.onOpen();\r\n-          }\r\n     }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687721380857,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,13 +5,15 @@\n \r\n const useOnPlay = (songs: Song[]) => {\r\n     const player = usePlayer();\r\n     const authModal = useAuthModal();\r\n-    const { subscription, user } = useUser();\r\n+    const { user } = useUser();\r\n \r\n     const onPlay = (id:string) => {\r\n         if(!user){\r\n             return authModal.onOpen()\r\n         }\r\n \r\n     }\r\n+\r\n+    return onPlay\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687721389429,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,10 @@\n     const onPlay = (id:string) => {\r\n         if(!user){\r\n             return authModal.onOpen()\r\n         }\r\n-\r\n+        player.setId(id)\r\n+        player.setIds()\r\n     }\r\n \r\n     return onPlay\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687721397734,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n         if(!user){\r\n             return authModal.onOpen()\r\n         }\r\n         player.setId(id)\r\n-        player.setIds()\r\n+        player.setIds(songs.map((song)))\r\n     }\r\n \r\n     return onPlay\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687721457217,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,11 @@\n         if(!user){\r\n             return authModal.onOpen()\r\n         }\r\n         player.setId(id)\r\n-        player.setIds(songs.map((song)))\r\n+        player.setIds(songs.map((song)=> song.id))\r\n     }\r\n \r\n     return onPlay\r\n\\ No newline at end of file\n-}\n+}\r\n+\r\n+export default useOnPlay()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687721468260,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,22 +1,3 @@\n-import { Song } from \"@/types\";\r\n-import usePlayer from \"./usePlayer\";\r\n-import useAuthModal from \"./useAuthModal\";\r\n-import { useUser } from \"@supabase/auth-helpers-react\";\r\n-\r\n-const useOnPlay = (songs: Song[]) => {\r\n-    const player = usePlayer();\r\n-    const authModal = useAuthModal();\r\n-    const { user } = useUser();\r\n-\r\n-    const onPlay = (id:string) => {\r\n-        if(!user){\r\n-            return authModal.onOpen()\r\n-        }\r\n-        player.setId(id)\r\n-        player.setIds(songs.map((song)=> song.id))\r\n-    }\r\n-\r\n-    return onPlay\r\n-}\r\n-\r\n-export default useOnPlay()\n\\ No newline at end of file\n+if (!subscription) {\r\n+    return subscribeModal.onOpen();\r\n+  }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687721474776,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +0,0 @@\n-if (!subscription) {\r\n-    return subscribeModal.onOpen();\r\n-  }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687721484910,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,30 @@\n+import { Song } from \"@/types\";\r\n+\r\n+import usePlayer from \"./usePlayer\";\r\n+import useSubscribeModal from \"./useSubscribeModal\";\r\n+import useAuthModal from \"./useAuthModal\";\r\n+import { useUser } from \"./useUser\";\r\n+\r\n+const useOnPlay = (songs: Song[]) => {\r\n+  const player = usePlayer();\r\n+  const subscribeModal = useSubscribeModal();\r\n+  const authModal = useAuthModal();\r\n+  const {  user } = useUser();\r\n+\r\n+  const onPlay = (id: string) => {\r\n+    if (!user) {\r\n+      return authModal.onOpen();\r\n+    }\r\n+\r\n+    if (!subscription) {\r\n+      return subscribeModal.onOpen();\r\n+    }\r\n+\r\n+    player.setId(id);\r\n+    player.setIds(songs.map((song) => song.id));\r\n+  }\r\n+\r\n+  return onPlay;\r\n+};\r\n+\r\n+export default useOnPlay;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687721490528,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import { Song } from \"@/types\";\r\n \r\n import usePlayer from \"./usePlayer\";\r\n-import useSubscribeModal from \"./useSubscribeModal\";\r\n+\r\n import useAuthModal from \"./useAuthModal\";\r\n import { useUser } from \"./useUser\";\r\n \r\n const useOnPlay = (songs: Song[]) => {\r\n@@ -15,11 +15,8 @@\n     if (!user) {\r\n       return authModal.onOpen();\r\n     }\r\n \r\n-    if (!subscription) {\r\n-      return subscribeModal.onOpen();\r\n-    }\r\n \r\n     player.setId(id);\r\n     player.setIds(songs.map((song) => song.id));\r\n   }\r\n"
+                },
+                {
+                    "date": 1687721496178,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,8 @@\n import { useUser } from \"./useUser\";\r\n \r\n const useOnPlay = (songs: Song[]) => {\r\n   const player = usePlayer();\r\n-  const subscribeModal = useSubscribeModal();\r\n   const authModal = useAuthModal();\r\n   const {  user } = useUser();\r\n \r\n   const onPlay = (id: string) => {\r\n"
+                }
+            ],
+            "date": 1687721223827,
+            "name": "Commit-0",
+            "content": "const useOnPlay"
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "sourceFile": "app/search/components/SearchContent.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1687737085097,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1687737094478,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n           className=\"flex items-center gap-x-4 w-full\"\r\n         >\r\n           <div className=\"flex-1\">\r\n             <MediaItem \r\n- \r\n+              onClick={}\r\n               data={song}\r\n             />\r\n           </div>\r\n           <LikeButton songId={song.id} />\r\n"
+                },
+                {
+                    "date": 1687737105243,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n           className=\"flex items-center gap-x-4 w-full\"\r\n         >\r\n           <div className=\"flex-1\">\r\n             <MediaItem \r\n-              onClick={}\r\n+              onClick={(id:string)=>on\r\n               data={song}\r\n             />\r\n           </div>\r\n           <LikeButton songId={song.id} />\r\n"
+                },
+                {
+                    "date": 1687737114448,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n           className=\"flex items-center gap-x-4 w-full\"\r\n         >\r\n           <div className=\"flex-1\">\r\n             <MediaItem \r\n-              onClick={(id:string)=>on\r\n+              onClick={(id:string)=>onPlay(id)}\r\n               data={song}\r\n             />\r\n           </div>\r\n           <LikeButton songId={song.id} />\r\n"
+                }
+            ],
+            "date": 1687737085097,
+            "name": "Commit-0",
+            "content": "\"use client\";\r\n\r\nimport { Song } from \"@/types\";\r\nimport MediaItem from \"@/components/MediaItem\";\r\nimport LikeButton from \"@/components/LikeButton\";\r\nimport useOnPlay from \"@/hooks/useOnPlay\";\r\n\r\n\r\ninterface SearchContentProps {\r\n  songs: Song[];\r\n}\r\n\r\nconst SearchContent: React.FC<SearchContentProps> = ({\r\n  songs\r\n}) => {\r\n\r\n  const onPlay = useOnPlay(songs)\r\n  if (songs.length === 0) {\r\n    return (\r\n      <div \r\n        className=\"\r\n          flex \r\n          flex-col \r\n          gap-y-2 \r\n          w-full \r\n          px-6 \r\n          text-neutral-400\r\n        \"\r\n      >\r\n        No songs found.\r\n      </div>\r\n    )\r\n  }\r\n\r\n  return ( \r\n    <div className=\"flex flex-col gap-y-2 w-full px-6\">\r\n      {songs.map((song: Song) => (\r\n        <div \r\n          key={song.id} \r\n          className=\"flex items-center gap-x-4 w-full\"\r\n        >\r\n          <div className=\"flex-1\">\r\n            <MediaItem \r\n \r\n              data={song}\r\n            />\r\n          </div>\r\n          <LikeButton songId={song.id} />\r\n        </div>\r\n      ))}\r\n    </div>\r\n  );\r\n}\r\n \r\nexport default SearchContent;"
+        }
+    ]
+}

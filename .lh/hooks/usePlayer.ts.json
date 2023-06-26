@@ -1,0 +1,94 @@
+{
+    "sourceFile": "hooks/usePlayer.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 19,
+            "patches": [
+                {
+                    "date": 1687719821768,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1687719835862,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,3 @@\n interface PlayerStore{\r\n-    \r\n+    ids: string\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687719841593,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,4 @@\n interface PlayerStore{\r\n-    ids: string\r\n+    ids: string[],\r\n+    \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687719853702,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,5 @@\n interface PlayerStore{\r\n     ids: string[],\r\n-    \r\n+    activeId?: string,\r\n+    setId: (id)\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687719861060,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n interface PlayerStore{\r\n     ids: string[],\r\n     activeId?: string,\r\n-    setId: (id)\r\n+    setId: (id:string) => void\r\n+    \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687719867187,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n interface PlayerStore{\r\n     ids: string[],\r\n     activeId?: string,\r\n-    setId: (id:string) => void\r\n-    \r\n+    setId: (id:string) => void,\r\n+    setIds\r\n+\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687719881219,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n interface PlayerStore{\r\n     ids: string[],\r\n     activeId?: string,\r\n     setId: (id:string) => void,\r\n-    setIds\r\n+    setIds: (ids:string) => void\r\n \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687719886945,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,6 +2,6 @@\n     ids: string[],\r\n     activeId?: string,\r\n     setId: (id:string) => void,\r\n     setIds: (ids:string) => void\r\n-\r\n+    reset\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687719894633,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,6 +2,8 @@\n     ids: string[],\r\n     activeId?: string,\r\n     setId: (id:string) => void,\r\n     setIds: (ids:string) => void\r\n-    reset\r\n-}\n\\ No newline at end of file\n+    reset: () => void\r\n+}\r\n+\r\n+const use\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687719902915,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,11 @@\n+import { create } from \"domain\"\r\n+\r\n interface PlayerStore{\r\n     ids: string[],\r\n     activeId?: string,\r\n     setId: (id:string) => void,\r\n     setIds: (ids:string) => void\r\n     reset: () => void\r\n }\r\n\\ No newline at end of file\n \r\n-const use\n+const usePlayer = create\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687719908071,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,5 +7,5 @@\n     setIds: (ids:string) => void\r\n     reset: () => void\r\n }\r\n \r\n-const usePlayer = create\n\\ No newline at end of file\n+const usePlayer = create<PlayerStoer>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687719914079,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,5 +7,5 @@\n     setIds: (ids:string) => void\r\n     reset: () => void\r\n }\r\n \r\n-const usePlayer = create<PlayerStoer>\n\\ No newline at end of file\n+const usePlayer = create<PlayerStore>()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687719920556,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,5 +7,5 @@\n     setIds: (ids:string) => void\r\n     reset: () => void\r\n }\r\n \r\n-const usePlayer = create<PlayerStore>()\n\\ No newline at end of file\n+const usePlayer = create<PlayerStore>((setFunction))\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687719927129,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,5 +7,5 @@\n     setIds: (ids:string) => void\r\n     reset: () => void\r\n }\r\n \r\n-const usePlayer = create<PlayerStore>((setFunction))\n\\ No newline at end of file\n+const usePlayer = create<PlayerStore>((set) =)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687719942606,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,5 +7,5 @@\n     setIds: (ids:string) => void\r\n     reset: () => void\r\n }\r\n \r\n-const usePlayer = create<PlayerStore>((set) =)\n\\ No newline at end of file\n+const usePlayer = create<PlayerStore>((set) => )\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687719950579,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,5 +7,7 @@\n     setIds: (ids:string) => void\r\n     reset: () => void\r\n }\r\n \r\n-const usePlayer = create<PlayerStore>((set) => )\n\\ No newline at end of file\n+const usePlayer = create<PlayerStore>((set) => {\r\n+    ids: []\r\n+})\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687719956963,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,6 +8,8 @@\n     reset: () => void\r\n }\r\n \r\n const usePlayer = create<PlayerStore>((set) => {\r\n-    ids: []\r\n+    ids: [],\r\n+    activeId: undefined,\r\n+    \r\n })\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687719966497,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,6 +10,6 @@\n \r\n const usePlayer = create<PlayerStore>((set) => {\r\n     ids: [],\r\n     activeId: undefined,\r\n-    \r\n+    setId: (id:string) => set()\r\n })\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687719978942,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,6 +10,6 @@\n \r\n const usePlayer = create<PlayerStore>((set) => {\r\n     ids: [],\r\n     activeId: undefined,\r\n-    setId: (id:string) => set()\r\n+    setId: (id:string) => set((activeId: id))\r\n })\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687720007744,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,19 @@\n-import { create } from \"domain\"\r\n+import { create } from 'zustand';\r\n \r\n-interface PlayerStore{\r\n-    ids: string[],\r\n-    activeId?: string,\r\n-    setId: (id:string) => void,\r\n-    setIds: (ids:string) => void\r\n-    reset: () => void\r\n+interface PlayerStore {\r\n+  ids: string[];\r\n+  activeId?: string;\r\n+  setId: (id: string) => void;\r\n+  setIds: (ids: string[]) => void;\r\n+  reset: () => void;\r\n\\ No newline at end of file\n }\r\n \r\n-const usePlayer = create<PlayerStore>((set) => {\r\n-    ids: [],\r\n-    activeId: undefined,\r\n-    setId: (id:string) => set((activeId: id))\r\n-})\n+const usePlayer = create<PlayerStore>((set) => ({\r\n+  ids: [],\r\n+  activeId: undefined,\r\n+  setId: (id: string) => set({ activeId: id }),\r\n+  setIds: (ids: string[]) => set({ ids }),\r\n+  reset: () => set({ ids: [], activeId: undefined })\r\n+}));\r\n+\r\n+export default usePlayer;\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1687719821768,
+            "name": "Commit-0",
+            "content": "interface PlayerStore{\r\n    \r\n}"
+        }
+    ]
+}

@@ -1,0 +1,154 @@
+{
+    "sourceFile": "components/Player.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 34,
+            "patches": [
+                {
+                    "date": 1687720219691,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1687720252672,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,13 @@\n \"use client\"\r\n \r\n+import usePlayer from \"@/hooks/usePlayer\";\r\n+\r\n const Player = () => {\r\n-    return (  );\r\n+    const player = usePlayer()\r\n+    \r\n+    return (  \r\n+        <div></div>\r\n+    );\r\n }\r\n  \r\n export default Player;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687720739446,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,9 @@\n \r\n const Player = () => {\r\n     const player = usePlayer()\r\n     \r\n+\r\n     return (  \r\n         <div></div>\r\n     );\r\n }\r\n"
+                },
+                {
+                    "date": 1687720745011,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import usePlayer from \"@/hooks/usePlayer\";\r\n \r\n const Player = () => {\r\n     const player = usePlayer()\r\n-    \r\n+    const {song} = \r\n \r\n     return (  \r\n         <div></div>\r\n     );\r\n"
+                },
+                {
+                    "date": 1687720752847,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,12 @@\n \"use client\"\r\n \r\n+import useGetSongById from \"@/hooks/useGetSongById\";\r\n import usePlayer from \"@/hooks/usePlayer\";\r\n \r\n const Player = () => {\r\n     const player = usePlayer()\r\n-    const {song} = \r\n+    const {song} = useGetSongById(player.activeId)\r\n \r\n     return (  \r\n         <div></div>\r\n     );\r\n"
+                },
+                {
+                    "date": 1687720760026,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,8 +6,9 @@\n const Player = () => {\r\n     const player = usePlayer()\r\n     const {song} = useGetSongById(player.activeId)\r\n \r\n+    \r\n     return (  \r\n         <div></div>\r\n     );\r\n }\r\n"
+                },
+                {
+                    "date": 1687720778012,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,8 +6,10 @@\n const Player = () => {\r\n     const player = usePlayer()\r\n     const {song} = useGetSongById(player.activeId)\r\n \r\n+\r\n+\r\n     \r\n     return (  \r\n         <div></div>\r\n     );\r\n"
+                },
+                {
+                    "date": 1687720788386,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,11 +6,11 @@\n const Player = () => {\r\n     const player = usePlayer()\r\n     const {song} = useGetSongById(player.activeId)\r\n \r\n+    const songUrl = useLao\r\n \r\n \r\n-    \r\n     return (  \r\n         <div></div>\r\n     );\r\n }\r\n"
+                },
+                {
+                    "date": 1687720795719,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n const Player = () => {\r\n     const player = usePlayer()\r\n     const {song} = useGetSongById(player.activeId)\r\n \r\n-    const songUrl = useLao\r\n+    const songUrl = useLoadSongUrl\r\n \r\n \r\n     return (  \r\n         <div></div>\r\n"
+                },
+                {
+                    "date": 1687720803493,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n const Player = () => {\r\n     const player = usePlayer()\r\n     const {song} = useGetSongById(player.activeId)\r\n \r\n-    const songUrl = useLoadSongUrl\r\n+    const songUrl = useLoadSongUrl (song)\r\n \r\n \r\n     return (  \r\n         <div></div>\r\n"
+                },
+                {
+                    "date": 1687720842632,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,15 @@\n \"use client\"\r\n \r\n import useGetSongById from \"@/hooks/useGetSongById\";\r\n+import useLoadSongUrl from \"@/hooks/useLoadSongUrl\";\r\n import usePlayer from \"@/hooks/usePlayer\";\r\n \r\n const Player = () => {\r\n     const player = usePlayer()\r\n     const {song} = useGetSongById(player.activeId)\r\n \r\n-    const songUrl = useLoadSongUrl (song)\r\n+    const songUrl = useLoadSongUrl(song)\r\n \r\n \r\n     return (  \r\n         <div></div>\r\n"
+                },
+                {
+                    "date": 1687721060767,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n const Player = () => {\r\n     const player = usePlayer()\r\n     const {song} = useGetSongById(player.activeId)\r\n \r\n-    const songUrl = useLoadSongUrl(song)\r\n+    const songUrl = useLoadSongUrl(song!)\r\n \r\n \r\n     return (  \r\n         <div></div>\r\n"
+                },
+                {
+                    "date": 1687721067172,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,9 @@\n     const {song} = useGetSongById(player.activeId)\r\n \r\n     const songUrl = useLoadSongUrl(song!)\r\n \r\n+    if(!song )\r\n \r\n     return (  \r\n         <div></div>\r\n     );\r\n"
+                },
+                {
+                    "date": 1687721075798,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n     const {song} = useGetSongById(player.activeId)\r\n \r\n     const songUrl = useLoadSongUrl(song!)\r\n \r\n-    if(!song )\r\n+    if(!song || !)\r\n \r\n     return (  \r\n         <div></div>\r\n     );\r\n"
+                },
+                {
+                    "date": 1687721082538,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n     const {song} = useGetSongById(player.activeId)\r\n \r\n     const songUrl = useLoadSongUrl(song!)\r\n \r\n-    if(!song || !)\r\n+    if(!song || !songUrl | )\r\n \r\n     return (  \r\n         <div></div>\r\n     );\r\n"
+                },
+                {
+                    "date": 1687721088496,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n     const {song} = useGetSongById(player.activeId)\r\n \r\n     const songUrl = useLoadSongUrl(song!)\r\n \r\n-    if(!song || !songUrl | )\r\n+    if(!song || !songUrl | !player.activeId)\r\n \r\n     return (  \r\n         <div></div>\r\n     );\r\n"
+                },
+                {
+                    "date": 1687721096233,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n     const {song} = useGetSongById(player.activeId)\r\n \r\n     const songUrl = useLoadSongUrl(song!)\r\n \r\n-    if(!song || !songUrl | !player.activeId)\r\n+    if(!song || !songUrl || !player.activeId)\r\n \r\n     return (  \r\n         <div></div>\r\n     );\r\n"
+                },
+                {
+                    "date": 1687721116052,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,11 @@\n     const {song} = useGetSongById(player.activeId)\r\n \r\n     const songUrl = useLoadSongUrl(song!)\r\n \r\n-    if(!song || !songUrl || !player.activeId)\r\n+    if(!song || !songUrl || !player.activeId){\r\n+        return null\r\n+    }\r\n \r\n     return (  \r\n         <div></div>\r\n     );\r\n"
+                },
+                {
+                    "date": 1687721122419,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,8 +13,10 @@\n     if(!song || !songUrl || !player.activeId){\r\n         return null\r\n     }\r\n \r\n+    \r\n+\r\n     return (  \r\n         <div></div>\r\n     );\r\n }\r\n"
+                },
+                {
+                    "date": 1687721127955,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,11 +12,10 @@\n \r\n     if(!song || !songUrl || !player.activeId){\r\n         return null\r\n     }\r\n+   \r\n \r\n-    \r\n-\r\n     return (  \r\n         <div></div>\r\n     );\r\n }\r\n"
+                },
+                {
+                    "date": 1687721133461,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,12 @@\n     }\r\n    \r\n \r\n     return (  \r\n-        <div></div>\r\n+        <div className=\"\">\r\n+\r\n+\r\n+        </div>\r\n     );\r\n }\r\n  \r\n export default Player;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687721143849,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n     }\r\n    \r\n \r\n     return (  \r\n-        <div className=\"\">\r\n+        <div className=\"fixed bottom-0 bg\">\r\n \r\n \r\n         </div>\r\n     );\r\n"
+                },
+                {
+                    "date": 1687721149497,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n     }\r\n    \r\n \r\n     return (  \r\n-        <div className=\"fixed bottom-0 bg\">\r\n+        <div className=\"fixed bottom-0 bg-black \">\r\n \r\n \r\n         </div>\r\n     );\r\n"
+                },
+                {
+                    "date": 1687721156912,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n     }\r\n    \r\n \r\n     return (  \r\n-        <div className=\"fixed bottom-0 bg-black \">\r\n+        <div className=\"fixed bottom-0 bg-black w-full py-2 h-[]\">\r\n \r\n \r\n         </div>\r\n     );\r\n"
+                },
+                {
+                    "date": 1687721163896,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n     }\r\n    \r\n \r\n     return (  \r\n-        <div className=\"fixed bottom-0 bg-black w-full py-2 h-[]\">\r\n+        <div className=\"fixed bottom-0 bg-black w-full py-2 h-[80px] px-4\">\r\n \r\n \r\n         </div>\r\n     );\r\n"
+                },
+                {
+                    "date": 1687721203537,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,8 +13,9 @@\n     if(!song || !songUrl || !player.activeId){\r\n         return null\r\n     }\r\n    \r\n+    \r\n \r\n     return (  \r\n         <div className=\"fixed bottom-0 bg-black w-full py-2 h-[80px] px-4\">\r\n \r\n"
+                },
+                {
+                    "date": 1687721887625,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,14 +13,14 @@\n     if(!song || !songUrl || !player.activeId){\r\n         return null\r\n     }\r\n    \r\n-    \r\n \r\n+\r\n     return (  \r\n         <div className=\"fixed bottom-0 bg-black w-full py-2 h-[80px] px-4\">\r\n \r\n-\r\n+        \r\n         </div>\r\n     );\r\n }\r\n  \r\n"
+                },
+                {
+                    "date": 1687721894066,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,10 +17,10 @@\n \r\n \r\n     return (  \r\n         <div className=\"fixed bottom-0 bg-black w-full py-2 h-[80px] px-4\">\r\n+            <PlayerContent />\r\n \r\n-        \r\n         </div>\r\n     );\r\n }\r\n  \r\n"
+                },
+                {
+                    "date": 1687721901780,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n \r\n \r\n     return (  \r\n         <div className=\"fixed bottom-0 bg-black w-full py-2 h-[80px] px-4\">\r\n-            <PlayerContent />\r\n+            <PlayerContent song={song} songUrl={}/>\r\n \r\n         </div>\r\n     );\r\n }\r\n"
+                },
+                {
+                    "date": 1687721907013,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n \r\n \r\n     return (  \r\n         <div className=\"fixed bottom-0 bg-black w-full py-2 h-[80px] px-4\">\r\n-            <PlayerContent song={song} songUrl={}/>\r\n+            <PlayerContent song={song} songUrl={songUrl}/>\r\n \r\n         </div>\r\n     );\r\n }\r\n"
+                },
+                {
+                    "date": 1687721914750,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n \r\n \r\n     return (  \r\n         <div className=\"fixed bottom-0 bg-black w-full py-2 h-[80px] px-4\">\r\n-            <PlayerContent song={song} songUrl={songUrl}/>\r\n+            <PlayerContent key={ }song={song} songUrl={songUrl}/>\r\n \r\n         </div>\r\n     );\r\n }\r\n"
+                },
+                {
+                    "date": 1687721919936,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n \r\n \r\n     return (  \r\n         <div className=\"fixed bottom-0 bg-black w-full py-2 h-[80px] px-4\">\r\n-            <PlayerContent key={ }song={song} songUrl={songUrl}/>\r\n+            <PlayerContent key={ songUrl} song={song} songUrl={songUrl}/>\r\n \r\n         </div>\r\n     );\r\n }\r\n"
+                },
+                {
+                    "date": 1687722027643,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n \r\n import useGetSongById from \"@/hooks/useGetSongById\";\r\n import useLoadSongUrl from \"@/hooks/useLoadSongUrl\";\r\n import usePlayer from \"@/hooks/usePlayer\";\r\n+import PlayerContent from \"./PlayerContent\";\r\n \r\n const Player = () => {\r\n     const player = usePlayer()\r\n     const {song} = useGetSongById(player.activeId)\r\n@@ -17,9 +18,9 @@\n \r\n \r\n     return (  \r\n         <div className=\"fixed bottom-0 bg-black w-full py-2 h-[80px] px-4\">\r\n-            <PlayerContent key={ songUrl} song={song} songUrl={songUrl}/>\r\n+            <PlayerContent key={songUrl} song={song} songUrl={songUrl}/>\r\n \r\n         </div>\r\n     );\r\n }\r\n"
+                },
+                {
+                    "date": 1687729322003,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,10 +2,10 @@\n \r\n import useGetSongById from \"@/hooks/useGetSongById\";\r\n import useLoadSongUrl from \"@/hooks/useLoadSongUrl\";\r\n import usePlayer from \"@/hooks/usePlayer\";\r\n-import PlayerContent from \"./PlayerContent\";\r\n \r\n+\r\n const Player = () => {\r\n     const player = usePlayer()\r\n     const {song} = useGetSongById(player.activeId)\r\n \r\n"
+                },
+                {
+                    "date": 1687729360259,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n \r\n import useGetSongById from \"@/hooks/useGetSongById\";\r\n import useLoadSongUrl from \"@/hooks/useLoadSongUrl\";\r\n import usePlayer from \"@/hooks/usePlayer\";\r\n+import PlayerContent from \"./PlayerContent\";\r\n \r\n \r\n const Player = () => {\r\n     const player = usePlayer()\r\n"
+                }
+            ],
+            "date": 1687720219691,
+            "name": "Commit-0",
+            "content": "\"use client\"\r\n\r\nconst Player = () => {\r\n    return (  );\r\n}\r\n \r\nexport default Player;"
+        }
+    ]
+}

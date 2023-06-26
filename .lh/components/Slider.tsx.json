@@ -1,0 +1,74 @@
+{
+    "sourceFile": "components/Slider.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 14,
+            "patches": [
+                {
+                    "date": 1687728311114,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1687728329495,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,2 +1,13 @@\n \"use client\"\r\n \r\n+interface \r\n+\r\n+const Slider = () => {\r\n+  return (\r\n+    <div>\r\n+      \r\n+    </div>\r\n+  )\r\n+}\r\n+\r\n+export default Slider\r\n"
+                },
+                {
+                    "date": 1687728338802,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n \"use client\"\r\n \r\n-interface \r\n+import * as RadixSlider from ''\r\n \r\n const Slider = () => {\r\n   return (\r\n     <div>\r\n"
+                },
+                {
+                    "date": 1687728351018,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n \"use client\"\r\n \r\n-import * as RadixSlider from ''\r\n+import * as RadixSlider from '@radix-ui/react-dialog'\r\n \r\n const Slider = () => {\r\n   return (\r\n     <div>\r\n"
+                },
+                {
+                    "date": 1687728359225,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n \"use client\"\r\n \r\n-import * as RadixSlider from '@radix-ui/react-dialog'\r\n+import * as RadixSlider from '@radix-ui/react-slider'\r\n \r\n const Slider = () => {\r\n   return (\r\n     <div>\r\n"
+                },
+                {
+                    "date": 1687728444044,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,15 @@\n \"use client\"\r\n \r\n import * as RadixSlider from '@radix-ui/react-slider'\r\n \r\n+\r\n+interface SlideProps {\r\n+    value?: number;\r\n+    onChange?: (value: number) => void;\r\n+  }\r\n+\r\n+  \r\n const Slider = () => {\r\n   return (\r\n     <div>\r\n       \r\n"
+                },
+                {
+                    "date": 1687728450817,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,10 +7,10 @@\n     value?: number;\r\n     onChange?: (value: number) => void;\r\n   }\r\n \r\n-  \r\n-const Slider = () => {\r\n+\r\n+const Slider:React.FC<SlideProps>= () => {\r\n   return (\r\n     <div>\r\n       \r\n     </div>\r\n"
+                },
+                {
+                    "date": 1687728461197,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n     onChange?: (value: number) => void;\r\n   }\r\n \r\n \r\n-const Slider:React.FC<SlideProps>= () => {\r\n+const Slider:React.FC<SlideProps>= ({value=1,onChange}) => {\r\n   return (\r\n     <div>\r\n       \r\n     </div>\r\n"
+                },
+                {
+                    "date": 1687728474173,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,14 @@\n   }\r\n \r\n \r\n const Slider:React.FC<SlideProps>= ({value=1,onChange}) => {\r\n+  \r\n+    const handleChange = (newValue: number[]) => {\r\n+        onChange?.(newValue[0]);\r\n+      };\r\n+\r\n+\r\n   return (\r\n     <div>\r\n       \r\n     </div>\r\n"
+                },
+                {
+                    "date": 1687728482073,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,26 +1,20 @@\n-\"use client\"\r\n+\"use client\";\r\n \r\n-import * as RadixSlider from '@radix-ui/react-slider'\r\n+import * as RadixSlider from \"@radix-ui/react-slider\";\r\n \r\n-\r\n interface SlideProps {\r\n-    value?: number;\r\n-    onChange?: (value: number) => void;\r\n-  }\r\n+  value?: number;\r\n+  onChange?: (value: number) => void;\r\n+}\r\n \r\n+const Slider: React.FC<SlideProps> = ({ value = 1, onChange }) => {\r\n+  const handleChange = (newValue: number[]) => {\r\n+    onChange?.(newValue[0]);\r\n+  };\r\n \r\n-const Slider:React.FC<SlideProps>= ({value=1,onChange}) => {\r\n-  \r\n-    const handleChange = (newValue: number[]) => {\r\n-        onChange?.(newValue[0]);\r\n-      };\r\n-\r\n-\r\n   return (\r\n-    <div>\r\n-      \r\n-    </div>\r\n-  )\r\n-}\r\n+    \r\n+  );\r\n+};\r\n \r\n-export default Slider\r\n+export default Slider;\r\n"
+                },
+                {
+                    "date": 1687728494266,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,11 @@\n     onChange?.(newValue[0]);\r\n   };\r\n \r\n   return (\r\n-    \r\n+    <RadixSlider.root>\r\n+        \r\n+    </RadixSlider.root>\r\n   );\r\n };\r\n \r\n export default Slider;\r\n"
+                },
+                {
+                    "date": 1687728504185,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,10 +12,10 @@\n     onChange?.(newValue[0]);\r\n   };\r\n \r\n   return (\r\n-    <RadixSlider.root>\r\n-        \r\n+    <RadixSlider.Root>\r\n+\r\n     </RadixSlider.root>\r\n   );\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1687728526290,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,11 +12,11 @@\n     onChange?.(newValue[0]);\r\n   };\r\n \r\n   return (\r\n-    <RadixSlider.Root>\r\n+    <RadixSlider.Root className=\"\">\r\n \r\n-    </RadixSlider.root>\r\n+    </RadixSlider.Root>\r\n   );\r\n };\r\n \r\n export default Slider;\r\n"
+                },
+                {
+                    "date": 1687728604721,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     onChange?.(newValue[0]);\r\n   };\r\n \r\n   return (\r\n-    <RadixSlider.Root className=\"\">\r\n+    <RadixSlider.Root className=\"relative flex items-e\">\r\n \r\n     </RadixSlider.Root>\r\n   );\r\n };\r\n"
+                },
+                {
+                    "date": 1687728619259,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,11 +11,44 @@\n   const handleChange = (newValue: number[]) => {\r\n     onChange?.(newValue[0]);\r\n   };\r\n \r\n-  return (\r\n-    <RadixSlider.Root className=\"relative flex items-e\">\r\n-\r\n+  return ( \r\n+    <RadixSlider.Root\r\n+      className=\"\r\n+        relative \r\n+        flex \r\n+        items-center \r\n+        select-none \r\n+        touch-none \r\n+        w-full \r\n+        h-10\r\n+      \"\r\n+      defaultValue={[1]}\r\n+      value={[value]}\r\n+      onValueChange={handleChange}\r\n+      max={1}\r\n+      step={0.1}\r\n+      aria-label=\"Volume\"\r\n+    >\r\n+      <RadixSlider.Track \r\n+        className=\"\r\n+          bg-neutral-600 \r\n+          relative \r\n+          grow \r\n+          rounded-full \r\n+          h-[3px]\r\n+        \"\r\n+      >\r\n+        <RadixSlider.Range \r\n+          className=\"\r\n+            absolute \r\n+            bg-white \r\n+            rounded-full \r\n+            h-full\r\n+          \" \r\n+        />\r\n+      </RadixSlider.Track>\r\n     </RadixSlider.Root>\r\n   );\r\n };\r\n \r\n"
+                }
+            ],
+            "date": 1687728311114,
+            "name": "Commit-0",
+            "content": "\"use client\"\r\n\r\n"
+        }
+    ]
+}

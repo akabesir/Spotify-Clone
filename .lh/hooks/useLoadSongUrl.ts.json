@@ -1,0 +1,18 @@
+{
+    "sourceFile": "hooks/useLoadSongUrl.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1687720833919,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1687720833919,
+            "name": "Commit-0",
+            "content": "import { useSupabaseClient } from \"@supabase/auth-helpers-react\";\r\n\r\nimport { Song } from \"@/types\";\r\n\r\nconst useLoadSongUrl = (song: Song) => {\r\n  const supabaseClient = useSupabaseClient();\r\n\r\n  if (!song) {\r\n    return '';\r\n  }\r\n\r\n  const { data: songData } = supabaseClient\r\n  .storage\r\n  .from('songs')\r\n  .getPublicUrl(song.song_path);\r\n\r\n  return songData.publicUrl;\r\n};\r\n\r\nexport default useLoadSongUrl;"
+        }
+    ]
+}

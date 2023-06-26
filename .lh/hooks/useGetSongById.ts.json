@@ -1,0 +1,146 @@
+{
+    "sourceFile": "hooks/useGetSongById.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 32,
+            "patches": [
+                {
+                    "date": 1687720318658,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1687720336373,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,3 @@\n-const useGetSongById = \n\\ No newline at end of file\n+const useGetSongById = (id?:string) => {\r\n+    const [isLoading, setIsLoading] = useD\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687720344603,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,6 @@\n+import { useState } from \"react\"\r\n+\r\n const useGetSongById = (id?:string) => {\r\n-    const [isLoading, setIsLoading] = useD\r\n+    const [isLoading, setIsLoading] = useState(false)\r\n+    \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687720349911,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import { useState } from \"react\"\r\n \r\n const useGetSongById = (id?:string) => {\r\n     const [isLoading, setIsLoading] = useState(false)\r\n-    \r\n+    const [song, setD]\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687720387928,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import { useState } from \"react\"\r\n \r\n const useGetSongById = (id?:string) => {\r\n     const [isLoading, setIsLoading] = useState(false)\r\n-    const [song, setD]\r\n+    const [song, setSong] = useState()\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687720397423,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n+import { Song } from \"@/types\"\r\n import { useState } from \"react\"\r\n \r\n const useGetSongById = (id?:string) => {\r\n     const [isLoading, setIsLoading] = useState(false)\r\n-    const [song, setSong] = useState()\r\n+    const [song, setSong] = useState<Song | undefined>()\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687720405507,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,6 +2,8 @@\n import { useState } from \"react\"\r\n \r\n const useGetSongById = (id?:string) => {\r\n     const [isLoading, setIsLoading] = useState(false)\r\n-    const [song, setSong] = useState<Song | undefined>()\r\n+    const [song, setSong] = useState<Song | undefined>(undefined)\r\n+\r\n+    const []\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687720411523,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,6 +4,6 @@\n const useGetSongById = (id?:string) => {\r\n     const [isLoading, setIsLoading] = useState(false)\r\n     const [song, setSong] = useState<Song | undefined>(undefined)\r\n \r\n-    const []\r\n+    const [supabaseClient]\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687720418171,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,10 @@\n import { Song } from \"@/types\"\r\n+import { useSessionContext } from \"@supabase/auth-helpers-react\"\r\n import { useState } from \"react\"\r\n \r\n const useGetSongById = (id?:string) => {\r\n     const [isLoading, setIsLoading] = useState(false)\r\n     const [song, setSong] = useState<Song | undefined>(undefined)\r\n \r\n-    const [supabaseClient]\r\n+    const [supabaseClient] = useSessionContext()\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687720435195,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,6 +5,6 @@\n const useGetSongById = (id?:string) => {\r\n     const [isLoading, setIsLoading] = useState(false)\r\n     const [song, setSong] = useState<Song | undefined>(undefined)\r\n \r\n-    const [supabaseClient] = useSessionContext()\r\n+    const {supabaseClient} = useSessionContext()\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687720442494,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,13 @@\n import { Song } from \"@/types\"\r\n import { useSessionContext } from \"@supabase/auth-helpers-react\"\r\n-import { useState } from \"react\"\r\n+import { useEffect, useState } from \"react\"\r\n \r\n const useGetSongById = (id?:string) => {\r\n     const [isLoading, setIsLoading] = useState(false)\r\n     const [song, setSong] = useState<Song | undefined>(undefined)\r\n \r\n     const {supabaseClient} = useSessionContext()\r\n+\r\n+\r\n+    useEffect(())\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687720453612,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,6 +8,10 @@\n \r\n     const {supabaseClient} = useSessionContext()\r\n \r\n \r\n-    useEffect(())\r\n+    useEffect(()=>{\r\n+        if(!id){\r\n+            return\r\n+        }\r\n+    })\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687720510752,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,6 +12,10 @@\n     useEffect(()=>{\r\n         if(!id){\r\n             return\r\n         }\r\n+\r\n+        setIsLoading(true)\r\n+\r\n+        const fetchSong = aync()\r\n     })\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687720517619,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,7 +15,9 @@\n         }\r\n \r\n         setIsLoading(true)\r\n \r\n-        const fetchSong = aync()\r\n+        const fetchSong = async() => {\r\n+            \r\n+        }\r\n     })\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687720523939,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,8 +16,8 @@\n \r\n         setIsLoading(true)\r\n \r\n         const fetchSong = async() => {\r\n-            \r\n+            const {data,error}\r\n         }\r\n     })\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687720529784,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,8 +16,8 @@\n \r\n         setIsLoading(true)\r\n \r\n         const fetchSong = async() => {\r\n-            const {data,error}\r\n+            const {data,error} = await supabase\r\n         }\r\n     })\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687720537147,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,8 +16,9 @@\n \r\n         setIsLoading(true)\r\n \r\n         const fetchSong = async() => {\r\n-            const {data,error} = await supabase\r\n+            const {data,error} = await supabaseClient\r\n+                .from('songs')\r\n         }\r\n     })\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687720543997,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,7 +18,8 @@\n \r\n         const fetchSong = async() => {\r\n             const {data,error} = await supabaseClient\r\n                 .from('songs')\r\n+                .select()\r\n         }\r\n     })\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687720556460,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,8 +18,9 @@\n \r\n         const fetchSong = async() => {\r\n             const {data,error} = await supabaseClient\r\n                 .from('songs')\r\n-                .select()\r\n+                .select('*')\r\n+                .eq()\r\n         }\r\n     })\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687720568143,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,8 +19,9 @@\n         const fetchSong = async() => {\r\n             const {data,error} = await supabaseClient\r\n                 .from('songs')\r\n                 .select('*')\r\n-                .eq()\r\n+                .eq('id', id)\r\n+                .single()\r\n         }\r\n     })\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687720578346,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,7 +21,11 @@\n                 .from('songs')\r\n                 .select('*')\r\n                 .eq('id', id)\r\n                 .single()\r\n+\r\n+            if(error){\r\n+                set\r\n+            }\r\n         }\r\n     })\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687720587897,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n import { Song } from \"@/types\"\r\n import { useSessionContext } from \"@supabase/auth-helpers-react\"\r\n import { useEffect, useState } from \"react\"\r\n+import { toast } from \"react-hot-toast\"\r\n \r\n const useGetSongById = (id?:string) => {\r\n     const [isLoading, setIsLoading] = useState(false)\r\n     const [song, setSong] = useState<Song | undefined>(undefined)\r\n@@ -23,9 +24,10 @@\n                 .eq('id', id)\r\n                 .single()\r\n \r\n             if(error){\r\n-                set\r\n+                setIsLoading(false)\r\n+                return toast.\r\n             }\r\n         }\r\n     })\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687720596990,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,11 @@\n                 .single()\r\n \r\n             if(error){\r\n                 setIsLoading(false)\r\n-                return toast.\r\n+                return toast.error(error.message)\r\n             }\r\n+\r\n+            \r\n         }\r\n     })\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687720607957,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,8 +28,9 @@\n                 setIsLoading(false)\r\n                 return toast.error(error.message)\r\n             }\r\n \r\n-            \r\n+            setSong(data as Song)\r\n+            setIsLoading(false)\r\n         }\r\n     })\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687720617255,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,6 +31,8 @@\n \r\n             setSong(data as Song)\r\n             setIsLoading(false)\r\n         }\r\n-    })\r\n+\r\n+        fetchSong()\r\n+    }, [])\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687720628300,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,6 +33,6 @@\n             setIsLoading(false)\r\n         }\r\n \r\n         fetchSong()\r\n-    }, [])\r\n+    }, [id, supabaseClient])\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687720661825,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import { Song } from \"@/types\"\r\n import { useSessionContext } from \"@supabase/auth-helpers-react\"\r\n-import { useEffect, useState } from \"react\"\r\n+import { useEffect, useMemo, useState } from \"react\"\r\n import { toast } from \"react-hot-toast\"\r\n \r\n const useGetSongById = (id?:string) => {\r\n     const [isLoading, setIsLoading] = useState(false)\r\n@@ -34,5 +34,7 @@\n         }\r\n \r\n         fetchSong()\r\n     }, [id, supabaseClient])\r\n+\r\n+    return useMemo(())\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687720667360,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,6 +35,8 @@\n \r\n         fetchSong()\r\n     }, [id, supabaseClient])\r\n \r\n-    return useMemo(())\r\n+    return useMemo(()=>{\r\n+\r\n+    }, [])\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687720675701,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,7 +36,7 @@\n         fetchSong()\r\n     }, [id, supabaseClient])\r\n \r\n     return useMemo(()=>{\r\n-\r\n+        isLoading\r\n     }, [])\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687720694826,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,8 +35,6 @@\n \r\n         fetchSong()\r\n     }, [id, supabaseClient])\r\n \r\n-    return useMemo(()=>{\r\n-        isLoading\r\n-    }, [])\r\n+    return useMemo(()=>, [])\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687720701861,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,6 +35,8 @@\n \r\n         fetchSong()\r\n     }, [id, supabaseClient])\r\n \r\n-    return useMemo(()=>, [])\r\n+    return useMemo(()=>({\r\n+        \r\n+    }), [])\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687720711379,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,7 +36,7 @@\n         fetchSong()\r\n     }, [id, supabaseClient])\r\n \r\n     return useMemo(()=>({\r\n-        \r\n-    }), [])\r\n+        isLoading,song\r\n+    }), [isLoading,song])\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1687720717582,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,5 +38,7 @@\n \r\n     return useMemo(()=>({\r\n         isLoading,song\r\n     }), [isLoading,song])\r\n-}\n\\ No newline at end of file\n+}\r\n+\r\n+export default useGetSongById\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1687720318658,
+            "name": "Commit-0",
+            "content": "const useGetSongById = "
+        }
+    ]
+}

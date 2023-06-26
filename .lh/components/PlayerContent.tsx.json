@@ -1,0 +1,30 @@
+{
+    "sourceFile": "components/PlayerContent.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1687722011638,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1687722016711,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,13 @@\n-\"use client\"\n\\ No newline at end of file\n+\"use client\"\r\n+\r\n+import React from 'react'\r\n+\r\n+const PlayerContent = () => {\r\n+  return (\r\n+    <div>\r\n+      \r\n+    </div>\r\n+  )\r\n+}\r\n+\r\n+export default PlayerContent\r\n"
+                },
+                {
+                    "date": 1687722080694,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,20 @@\n \"use client\"\r\n \r\n import React from 'react'\r\n+import { useEffect, useState } from \"react\";\r\n+import { BsPauseFill, BsPlayFill } from \"react-icons/bs\";\r\n+import { HiSpeakerWave, HiSpeakerXMark } from \"react-icons/hi2\";\r\n+import { AiFillStepBackward, AiFillStepForward } from \"react-icons/ai\";\r\n \r\n+import { Song } from \"@/types\";\r\n+import usePlayer from \"@/hooks/usePlayer\";\r\n+\r\n+import LikeButton from \"./LikeButton\";\r\n+import MediaItem from \"./MediaItem\";\r\n+import Slider from \"./Slider\";\r\n+\r\n+\r\n const PlayerContent = () => {\r\n   return (\r\n     <div>\r\n       \r\n"
+                },
+                {
+                    "date": 1687722093239,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n import LikeButton from \"./LikeButton\";\r\n import MediaItem from \"./MediaItem\";\r\n \r\n \r\n-interface Player\r\n+interface PlayerOn\r\n \r\n const PlayerContent = () => {\r\n   return (\r\n     <div>\r\n"
+                }
+            ],
+            "date": 1687722011638,
+            "name": "Commit-0",
+            "content": "\"use client\""
+        }
+    ]
+}

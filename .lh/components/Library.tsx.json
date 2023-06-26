@@ -1,0 +1,34 @@
+{
+    "sourceFile": "components/Library.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1687736997850,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1687737008261,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,14 +11,15 @@\n import useUploadModal from \"@/hooks/useUploadModal\";\r\n import { Song } from \"@/types\";\r\n \r\n import MediaItem from \"./MediaItem\";\r\n+import useOnPlay from \"@/hooks/useOnPlay\";\r\n \r\n const Library: React.FC<LibraryProps> = ({ songs }) => {\r\n   const authModal = useAuthModal();\r\n   const uploadModal = useUploadModal();\r\n   const user = useUser();\r\n-  const \r\n+  const onPlay = useOnPlay()\r\n   const onClick = () => {\r\n     if (!user) {\r\n       return authModal.onOpen();\r\n     }\r\n"
+                },
+                {
+                    "date": 1687737017053,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n const Library: React.FC<LibraryProps> = ({ songs }) => {\r\n   const authModal = useAuthModal();\r\n   const uploadModal = useUploadModal();\r\n   const user = useUser();\r\n-  const onPlay = useOnPlay()\r\n+  const onPlay = useOnPlay(songs)\r\n   const onClick = () => {\r\n     if (!user) {\r\n       return authModal.onOpen();\r\n     }\r\n"
+                },
+                {
+                    "date": 1687737031887,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n         </div>\r\n         <div className=\"flex flex-col gap-y-2 mt-4 px-3\">\r\n         {songs.map((item) => (\r\n           <MediaItem \r\n-            onClick={()=>{}} \r\n+            onClick={(id:string)=>{}} \r\n             key={item.id} \r\n             data={item}\r\n           />\r\n         ))}\r\n"
+                },
+                {
+                    "date": 1687737039011,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n         </div>\r\n         <div className=\"flex flex-col gap-y-2 mt-4 px-3\">\r\n         {songs.map((item) => (\r\n           <MediaItem \r\n-            onClick={(id:string)=>{}} \r\n+            onClick={(id:string)=>onPlay(id)} \r\n             key={item.id} \r\n             data={item}\r\n           />\r\n         ))}\r\n"
+                }
+            ],
+            "date": 1687736997850,
+            "name": "Commit-0",
+            "content": "\"use client\";\r\n\r\ninterface LibraryProps {\r\n  songs: Song[];\r\n}\r\n\r\nimport { TbPlaylist } from \"react-icons/tb\";\r\nimport { AiOutlinePlus } from \"react-icons/ai\";\r\nimport useAuthModal from \"@/hooks/useAuthModal\";\r\nimport { useUser } from \"@/hooks/useUser\";\r\nimport useUploadModal from \"@/hooks/useUploadModal\";\r\nimport { Song } from \"@/types\";\r\n\r\nimport MediaItem from \"./MediaItem\";\r\n\r\nconst Library: React.FC<LibraryProps> = ({ songs }) => {\r\n  const authModal = useAuthModal();\r\n  const uploadModal = useUploadModal();\r\n  const user = useUser();\r\n  const \r\n  const onClick = () => {\r\n    if (!user) {\r\n      return authModal.onOpen();\r\n    }\r\n\r\n    // Todo : check for subscription\r\n\r\n    return uploadModal.onOpen();\r\n  };\r\n\r\n  return (\r\n    <div>\r\n      <div className=\"flex flex-col\">\r\n        <div className=\"flex items-center justify-between px-5 pt-4\">\r\n          <div className=\"inline-flex items-center gap-x-2\">\r\n            <TbPlaylist size={26} className=\"text-neutral-400\" />\r\n            <p className=\"text-neutral-400 font-medium text-md\">Your library</p>\r\n          </div>\r\n          <AiOutlinePlus\r\n            onClick={onClick}\r\n            size={20}\r\n            className=\"text-neutral-400 cursor-pointer hover:text-white transition\"\r\n          />\r\n        </div>\r\n        <div className=\"flex flex-col gap-y-2 mt-4 px-3\">\r\n        {songs.map((item) => (\r\n          <MediaItem \r\n            onClick={()=>{}} \r\n            key={item.id} \r\n            data={item}\r\n          />\r\n        ))}\r\n        </div>\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n\r\nexport default Library;\r\n"
+        }
+    ]
+}

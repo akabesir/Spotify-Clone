@@ -1,0 +1,50 @@
+{
+    "sourceFile": "components/Sidebar.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 8,
+            "patches": [
+                {
+                    "date": 1687736864546,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1687736877910,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n     [pathname]\r\n   );\r\n \r\n   return (\r\n-    <div className=\"flex h-full\">\r\n+    <div className={}>\r\n       <div className=\"hidden md:flex flex-col gap-y-2 bg-black h-full w-[300px] p-2\">\r\n         <Box>\r\n           <div className=\"flex flex-col gap-y-4 px-5 py-4\">\r\n             {routes.map((item) => (\r\n"
+                },
+                {
+                    "date": 1687736886421,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,9 @@\n import SidebarItem from \"./SidebarItem\";\r\n import Library from \"./Library\";\r\n import { Song } from \"@/types\";\r\n import usePlayer from \"@/hooks/usePlayer\";\r\n+import { twMerge } from \"tailwind-merge\";\r\n \r\n interface SidebarProps {\r\n   children: React.ReactNode,\r\n   songs: Song[]\r\n@@ -37,9 +38,9 @@\n     [pathname]\r\n   );\r\n \r\n   return (\r\n-    <div className={}>\r\n+    <div className={twMerge()}>\r\n       <div className=\"hidden md:flex flex-col gap-y-2 bg-black h-full w-[300px] p-2\">\r\n         <Box>\r\n           <div className=\"flex flex-col gap-y-4 px-5 py-4\">\r\n             {routes.map((item) => (\r\n"
+                },
+                {
+                    "date": 1687736896431,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,13 @@\n     [pathname]\r\n   );\r\n \r\n   return (\r\n-    <div className={twMerge()}>\r\n+    <div className={twMerge(`\r\n+      flex\r\n+      h-full\r\n+      \r\n+    `)}>\r\n       <div className=\"hidden md:flex flex-col gap-y-2 bg-black h-full w-[300px] p-2\">\r\n         <Box>\r\n           <div className=\"flex flex-col gap-y-4 px-5 py-4\">\r\n             {routes.map((item) => (\r\n"
+                },
+                {
+                    "date": 1687736906246,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,10 +41,9 @@\n   return (\r\n     <div className={twMerge(`\r\n       flex\r\n       h-full\r\n-      \r\n-    `)}>\r\n+    `, player.activeId && )}>\r\n       <div className=\"hidden md:flex flex-col gap-y-2 bg-black h-full w-[300px] p-2\">\r\n         <Box>\r\n           <div className=\"flex flex-col gap-y-4 px-5 py-4\">\r\n             {routes.map((item) => (\r\n"
+                },
+                {
+                    "date": 1687736915346,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n   return (\r\n     <div className={twMerge(`\r\n       flex\r\n       h-full\r\n-    `, player.activeId && )}>\r\n+    `, player.activeId && \"h-\")}>\r\n       <div className=\"hidden md:flex flex-col gap-y-2 bg-black h-full w-[300px] p-2\">\r\n         <Box>\r\n           <div className=\"flex flex-col gap-y-4 px-5 py-4\">\r\n             {routes.map((item) => (\r\n"
+                },
+                {
+                    "date": 1687736920595,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n   return (\r\n     <div className={twMerge(`\r\n       flex\r\n       h-full\r\n-    `, player.activeId && \"h-\")}>\r\n+    `, player.activeId && \"h-[\")}>\r\n       <div className=\"hidden md:flex flex-col gap-y-2 bg-black h-full w-[300px] p-2\">\r\n         <Box>\r\n           <div className=\"flex flex-col gap-y-4 px-5 py-4\">\r\n             {routes.map((item) => (\r\n"
+                },
+                {
+                    "date": 1687736927971,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n   return (\r\n     <div className={twMerge(`\r\n       flex\r\n       h-full\r\n-    `, player.activeId && \"h-[\")}>\r\n+    `, player.activeId && \"h-[calc(100% - 80px\")}>\r\n       <div className=\"hidden md:flex flex-col gap-y-2 bg-black h-full w-[300px] p-2\">\r\n         <Box>\r\n           <div className=\"flex flex-col gap-y-4 px-5 py-4\">\r\n             {routes.map((item) => (\r\n"
+                },
+                {
+                    "date": 1687736938461,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n   return (\r\n     <div className={twMerge(`\r\n       flex\r\n       h-full\r\n-    `, player.activeId && \"h-[calc(100% - 80px\")}>\r\n+    `, player.activeId && \"h-[calc(100%-80px)]\")}>\r\n       <div className=\"hidden md:flex flex-col gap-y-2 bg-black h-full w-[300px] p-2\">\r\n         <Box>\r\n           <div className=\"flex flex-col gap-y-4 px-5 py-4\">\r\n             {routes.map((item) => (\r\n"
+                }
+            ],
+            "date": 1687736864546,
+            "name": "Commit-0",
+            "content": "\"use client\";\r\n\r\nimport { HiHome } from \"react-icons/hi\";\r\nimport { BiSearch } from \"react-icons/bi\";\r\n\r\nimport { usePathname } from \"next/navigation\";\r\nimport { useMemo } from \"react\";\r\nimport Box from \"./Box\";\r\nimport SidebarItem from \"./SidebarItem\";\r\nimport Library from \"./Library\";\r\nimport { Song } from \"@/types\";\r\nimport usePlayer from \"@/hooks/usePlayer\";\r\n\r\ninterface SidebarProps {\r\n  children: React.ReactNode,\r\n  songs: Song[]\r\n}\r\n\r\nconst Sidebar: React.FC<SidebarProps> = ({ children, songs }) => {\r\n  const pathname = usePathname();\r\n  const player = usePlayer()\r\n  const routes = useMemo(\r\n    () => [\r\n      {\r\n        icon: HiHome,\r\n        label: \"Home\",\r\n        active: pathname !== \"/search\",\r\n        href: \"/\",\r\n      },\r\n      {\r\n        icon: BiSearch,\r\n        label: \"Search\",\r\n        href: \"/search\",\r\n        active: pathname === \"/search\",\r\n      },\r\n    ],\r\n    [pathname]\r\n  );\r\n\r\n  return (\r\n    <div className=\"flex h-full\">\r\n      <div className=\"hidden md:flex flex-col gap-y-2 bg-black h-full w-[300px] p-2\">\r\n        <Box>\r\n          <div className=\"flex flex-col gap-y-4 px-5 py-4\">\r\n            {routes.map((item) => (\r\n              <SidebarItem key={item.label} {...item} />\r\n            ))}\r\n          </div>\r\n        </Box>\r\n        <Box className=\"overflow-y-auto h-full\">\r\n          <Library songs={songs} />\r\n          </Box>\r\n      </div>\r\n      <main className=\"h-full flex-1 overflow-y-auto py-2\">{children}</main>\r\n    </div>\r\n  );\r\n};\r\n\r\nexport default Sidebar;\r\n"
+        }
+    ]
+}

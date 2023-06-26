@@ -1,0 +1,26 @@
+{
+    "sourceFile": "app/liked/components/LikedContent.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1687737148810,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1687737160146,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n \r\n const LikedContent: React.FC<LikedContentProps> = ({songs}) => {\r\n   const router = useRouter()\r\n   const {isLoading,user}= useUser()\r\n-  const onPlay = useOnPlay()\r\n+  const onPlay = useOnPlay(songs)\r\n   useEffect(()=>{\r\n     if(!isLoading && !user ){\r\n         router.replace('/')\r\n     }\r\n@@ -47,9 +47,9 @@\n           key={song.id} \r\n           className=\"flex items-center gap-x-4 w-full\"\r\n         >\r\n           <div className=\"flex-1\">\r\n-            <MediaItem  data={song} />\r\n+            <MediaItem  data={song} on/>\r\n           </div>\r\n           <LikeButton songId={song.id} />\r\n         </div>\r\n       ))}\r\n"
+                },
+                {
+                    "date": 1687737168433,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,9 @@\n           key={song.id} \r\n           className=\"flex items-center gap-x-4 w-full\"\r\n         >\r\n           <div className=\"flex-1\">\r\n-            <MediaItem  data={song} on/>\r\n+            <MediaItem  data={song} onClick={(id:string) => onPlay}/>\r\n           </div>\r\n           <LikeButton songId={song.id} />\r\n         </div>\r\n       ))}\r\n"
+                }
+            ],
+            "date": 1687737148810,
+            "name": "Commit-0",
+            "content": "\"use client\";\r\n\r\nimport { useEffect } from \"react\";\r\nimport { useRouter } from \"next/navigation\";\r\n\r\nimport { Song } from \"@/types\";\r\nimport { useUser } from \"@/hooks/useUser\";\r\nimport MediaItem from \"@/components/MediaItem\";\r\nimport LikeButton from \"@/components/LikeButton\";\r\nimport useOnPlay from \"@/hooks/useOnPlay\";\r\n\r\n\r\ninterface LikedContentProps {\r\n  songs: Song[];\r\n};\r\n\r\n\r\nconst LikedContent: React.FC<LikedContentProps> = ({songs}) => {\r\n  const router = useRouter()\r\n  const {isLoading,user}= useUser()\r\n  const onPlay = useOnPlay()\r\n  useEffect(()=>{\r\n    if(!isLoading && !user ){\r\n        router.replace('/')\r\n    }\r\n  }, [isLoading,user,router])\r\n\r\n  if (songs.length === 0) {\r\n    return (\r\n      <div \r\n        className=\"\r\n          flex \r\n          flex-col \r\n          gap-y-2 \r\n          w-full px-6 \r\n          text-neutral-400\r\n        \"\r\n      >\r\n        No liked songs.\r\n      </div>\r\n    )\r\n  }\r\n  return ( \r\n    <div className=\"flex flex-col gap-y-2 w-full p-6\">\r\n      {songs.map((song: any) => (\r\n        <div \r\n          key={song.id} \r\n          className=\"flex items-center gap-x-4 w-full\"\r\n        >\r\n          <div className=\"flex-1\">\r\n            <MediaItem  data={song} />\r\n          </div>\r\n          <LikeButton songId={song.id} />\r\n        </div>\r\n      ))}\r\n    </div>\r\n  );\r\n}\r\n\r\nexport default LikedContent\r\n"
+        }
+    ]
+}

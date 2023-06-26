@@ -1,0 +1,26 @@
+{
+    "sourceFile": "app/(site)/components/PageContent.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1687721526701,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1687721554050,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n \"use client\";\r\n \r\n import { Song } from \"@/types\";\r\n-// import useOnPlay from \"@/hooks/useOnPlay\";\r\n+import useOnPlay from \"@/hooks/useOnPlay\";\r\n import SongItem from \"@/components/SongItem\";\r\n \r\n interface PageContentProps {\r\n   songs: Song[];\r\n@@ -36,9 +36,9 @@\n       \"\r\n     >\r\n       {songs.map((item) => (\r\n         <SongItem \r\n-          onClick={()=>{}} \r\n+          onClick={(id:string)=>{}} \r\n           key={item.id} \r\n           data={item}\r\n         />\r\n       ))}\r\n"
+                },
+                {
+                    "date": 1687721561469,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n       \"\r\n     >\r\n       {songs.map((item) => (\r\n         <SongItem \r\n-          onClick={(id:string)=>}} \r\n+          onClick={(id:string)=>onPlay} \r\n           key={item.id} \r\n           data={item}\r\n         />\r\n       ))}\r\n"
+                }
+            ],
+            "date": 1687721526701,
+            "name": "Commit-0",
+            "content": "\"use client\";\r\n\r\nimport { Song } from \"@/types\";\r\n// import useOnPlay from \"@/hooks/useOnPlay\";\r\nimport SongItem from \"@/components/SongItem\";\r\n\r\ninterface PageContentProps {\r\n  songs: Song[];\r\n}\r\n\r\nconst PageContent: React.FC<PageContentProps> = ({\r\n  songs\r\n}) => {\r\n const onPlay = useOnPlay(songs);\r\n\r\n  if (songs.length === 0) {\r\n    return (\r\n      <div className=\"mt-4 text-neutral-400\">\r\n        No songs available.\r\n      </div>\r\n    )\r\n  }\r\n\r\n  return ( \r\n    <div \r\n      className=\"\r\n        grid \r\n        grid-cols-2 \r\n        sm:grid-cols-3 \r\n        md:grid-cols-3 \r\n        lg:grid-cols-4 \r\n        xl:grid-cols-5 \r\n        2xl:grid-cols-8 \r\n        gap-4 \r\n        mt-4\r\n      \"\r\n    >\r\n      {songs.map((item) => (\r\n        <SongItem \r\n          onClick={()=>{}} \r\n          key={item.id} \r\n          data={item}\r\n        />\r\n      ))}\r\n    </div>\r\n  );\r\n}\r\n \r\nexport default PageContent;"
+        }
+    ]
+}
