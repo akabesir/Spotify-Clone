@@ -1,0 +1,18 @@
+{
+    "sourceFile": "components/SongItem.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1687791026504,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1687791026504,
+            "name": "Commit-0",
+            "content": "\"use client\";\r\n\r\nimport useLoadImage from \"@/hooks/useLoadImage\";\r\nimport { Song } from \"@/types\";\r\nimport React from \"react\";\r\nimport Image from \"next/image\";\r\nimport PlayButton from \"./PlayButton\";\r\n\r\ninterface SongItemProps {\r\n  data: Song;\r\n  onClick: (id: string) => void;\r\n}\r\n\r\nconst SongItem: React.FC<SongItemProps> = ({ data, onClick }) => {\r\n  const imagePath = useLoadImage(data);\r\n  return ( \r\n    <div\r\n      onClick={() => onClick(data.id)} \r\n      className=\"\r\n        relative \r\n        group \r\n        flex \r\n        flex-col \r\n        items-center \r\n        justify-center \r\n        rounded-md \r\n        overflow-hidden \r\n        gap-x-4 \r\n        bg-neutral-400/5 \r\n        cursor-pointer \r\n        hover:bg-neutral-400/10 \r\n        transition \r\n        p-3\r\n      \"\r\n    >\r\n      <div \r\n        className=\"\r\n          relative \r\n          aspect-square \r\n          w-full\r\n          h-full \r\n          rounded-md \r\n          overflow-hidden\r\n        \"\r\n      >\r\n        <Image\r\n          className=\"object-cover\"\r\n          src={imagePath || '/images/music-placeholder.jpg'}\r\n          fill\r\n          alt=\"Image\"\r\n        />\r\n      </div>\r\n      <div className=\"flex flex-col items-start w-full pt-4 gap-y-1\">\r\n        <p className=\"font-semibold truncate w-full\">\r\n          {data.title}\r\n        </p>\r\n        <p \r\n          className=\"\r\n            text-neutral-400 \r\n            text-sm \r\n            pb-4 \r\n            w-full \r\n            truncate\r\n          \"\r\n        >\r\n          By {data.author}\r\n        </p>\r\n      </div>\r\n      <div \r\n        className=\"\r\n          absolute \r\n          bottom-24 \r\n          right-5\r\n        \"\r\n      >\r\n        <PlayButton />\r\n      </div>\r\n    </div>\r\n   );\r\n};\r\n\r\nexport default SongItem;\r\n"
+        }
+    ]
+}
